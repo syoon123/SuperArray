@@ -4,7 +4,7 @@
    2015-12-04 */
 
 public interface ListInt {
-    //adds item at index, shifts existing elements to the right
+    //adds item at index, shifts existing elements to the right, fails for index >= size
     void add(int index, int newVal);
 
     //adds item after last item

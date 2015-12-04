@@ -87,7 +87,8 @@ public class SuperArray {
     
     //adds item at index, shifts existing elements to the right
     public void add(int index, int newVal) {
-        if (_size == _data.length) {
+	checkIndex(index);
+	if (_size == _data.length) {
             expand();
         }
         for(int i = _size; i>index; i--) {
