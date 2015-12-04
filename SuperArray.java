@@ -19,7 +19,7 @@ PHASE II additions:
 * public int size() {} //returns number of menainful elements in _data
 *****************************/
 
-public class SuperArray {
+public class SuperArray implements ListInt {
 
     //~~~~~INSTANCE VARS~~~~~
     //underlying container, or "core" of this data structure:
@@ -82,13 +82,15 @@ public class SuperArray {
 
     //adds item after last item
     public void add(int newVal) {
-        add(_lastPos+1, newVal);
+        _data[_lastPos+1] = newVal;
+	_lastPos += 1;
+	_size += 1;
     }
     
     //adds item at index, shifts existing elements to the right
     public void add(int index, int newVal) {
 	checkIndex(index);
-	if (_size == _data.length) {
+	if (_size <= _data.length) {
             expand();
         }
         for(int i = _size; i>index; i--) {
@@ -116,33 +118,20 @@ public class SuperArray {
     //main method for testing
     public static void main( String[] args ) {
 	//*****INSERT ADEQUATE TEST CALLS HERE*****
-    	SuperArray a = new SuperArray();
-    	System.out.println(a._size);
-    	System.out.println(a._lastPos);
-    	System.out.println(a);
-    	a.expand();
-    	System.out.println(a);
-    	//System.out.println(a.get(14)); should error
-    	a._lastPos = 10; // we can do this because in SuperArray.java
-    	//System.out.println(a.get(14)); //should error
-    	System.out.println(a.get(7));
-    	System.out.println(a);
-    	System.out.println(a._lastPos);
-    	a._data = new int[]{1,2,3,4,5,6,7,8};
-    	a._lastPos = 4;
-    	a._size = 5;
-    	System.out.println(a);
-    	a.remove(2);
-    	System.out.println(a);
-    	a.remove(3); //test for removing last element
-    	System.out.println(a);
-    	a.add(1,3);
-    	System.out.println(a);
-    	a.add(4,5);
-    	System.out.println(a);
-    	a.add(6);
-    	System.out.println(a);
-    	System.out.println(a.size());
+    	ListInt a = new SuperArray();
+	for(int i=0; i<10; i++) {
+	    a.add(i);
+	}
+	System.out.println(a);
+	a.add(4, -1);
+	System.out.println(a);
+	a.set(4, 1);
+	System.out.println(a);
+	System.out.println(a.size());
+	a.remove(4);
+	System.out.println(a);
+	System.out.println(a.size());
+	System.out.println(a.get(4));
     }//end main
 		
 }//end class
