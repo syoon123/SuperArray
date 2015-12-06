@@ -1,8 +1,8 @@
 /*****************************
-The Hamburglars -- Sarah Yoon, Gabriel Marks
+Team Plebes -- Sarah Yoon, Nick Ng
 APCS1 pd10
-HW40 -- Array of Grade 316
-2015-12-02
+HW42 -- Array of Titanium
+2015-12-04
 
 * class SuperArray --  A wrapper class for an array. 
 * Maintains functionality:
